@@ -24,6 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install poetry
           poetry install --with dev --sync
+          
+      - name: Run Ruff
+        run: ruff check --output-format=github .
 
       - name: Rodar testes do Django com cobertura
         run: poetry run pytest devpro --cov=devpro --cov-fail-under=82
