@@ -47,7 +47,7 @@ format = 'ruff check . --fix && ruff format .'
 run = 'python manage.py runserver'
 
 pre_test = 'task lint && echo PRETEEST'
-test = 'pytest -s -x --cov=. -vv && echo TEEEST'
+test = 'pytest -s -x --cov=devpro -vv && echo TEEEST'
 post_test = 'coverage html'
 
 [build-system]
