@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Ruff
         run: |
-          poetry run task test
+          poetry run task lint
 
       - name: Rodar testes do Django com cobertura
         run: poetry run pytest devpro --cov=devpro --cov-fail-under=82
