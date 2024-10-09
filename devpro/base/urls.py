@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin  # noqa F401
 from django.urls import path
 
 from devpro.base import views

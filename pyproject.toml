@@ -2,7 +2,7 @@
 name = "django-para-profissionais"
 version = "0.1.0"
 description = "Projeto com código fonte do curso Django para Profisisonais da DevPro"
-authors = ["renzon <renzo.n@gmail.com>"]
+authors = ["renzon <renzo.n@gmail.com>", "Santos <clarasantosmf@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 package-mode = false
@@ -26,28 +26,25 @@ DJANGO_SETTINGS_MODULE = "devpro.settings"
 python_files = ["test*.py", "*.p_testy"]
 
 [tool.ruff]
-line-length = 79
+line-length=120
+exclude = ['./devpro/base/migrations']
 
 [tool.ruff.lint]
 select = ['I', 'F', 'E', 'W', 'PL', 'PT']
-exclude = ['base/migrations/']
-ignore = [
-    "F401",  # Too many positional arguments
-]
+ignore = ["PLR2004"]
 
 [tool.ruff.format]
 quote-style = 'single'
 
 [tool.taskipy.tasks]
-
 lint = 'ruff check . && ruff check . --diff'
 
 format = 'ruff check . --fix && ruff format .'
 
 run = 'python manage.py runserver'
 
-pre_test = 'task lint && echo PRETEEST'
-test = 'pytest -s -x --cov=devpro -vv && echo TEEEST'
+pre_test = 'task lint'
+test = 'pytest devpro/ -s -x --cov=devpro -vv'
 post_test = 'coverage html'
 
 [build-system]
